@@ -1,260 +1,528 @@
-# WAHDATH — Your Muslim Companion
+# 🕌 WAHDATH — Your Muslim Companion
 
-A digital companion for Muslims in Sri Lanka: prayer times, Qur'an, and
-everyday Islamic tools. This is the React + Vite + Tailwind rebuild of the
-original static prototype, following the architecture in the WAHDATH master
-spec.
+**WAHDATH** is a modern digital companion for Muslims in Sri Lanka, designed to bring essential Islamic tools and resources together in one accessible web application.
 
-## Running it
+The project combines **prayer times, Quran, Hadith, Qibla, Tasbih, Ramadan tools, Islamic calendar features, notifications, and an AI-powered Quran assistant** into a single platform.
 
+> **A Digital Companion for Muslims in Sri Lanka.**
+
+---
+
+## ✨ Features
+
+### 🕋 Prayer Times
+
+* Daily prayer time dashboard
+* Fajr, Dhuhr, Asr, Maghrib and Isha
+* Live **Next Prayer** countdown
+* Automatic transition to the next day's Fajr
+* Sri Lankan province, district and city selection
+* Support for all **25 districts of Sri Lanka**
+* Eastern Province prayer-time adjustment
+* Daily and monthly prayer timetable
+* Prayer status highlighting
+* Prayer notifications
+* Adhan support
+
+### 📖 Quran
+
+* Complete Quran with **114 Surahs**
+* Arabic Quran text
+* English translation
+* Quran search
+* Surah navigation
+* Ayah-by-ayah reading
+* Bookmarks
+* Last-read progress
+* Adjustable Quran font size
+* Dark reading experience
+* Quran sharing
+
+### 🤖 AI Quran Assistant
+
+WAHDATH includes an AI-powered Quran assistant designed to help users explore Quranic guidance.
+
+The assistant is designed around:
+
+* Quran-based answers
+* Relevant Ayah references
+* Contextual explanations
+* Source-based responses
+* Retrieval-augmented generation (RAG) architecture
+* Protection against fabricated Quran references
+
+The AI assistant is intended as an educational tool and **not as a replacement for qualified Islamic scholars or Muftis**.
+
+---
+
+## 🧭 Qibla Finder
+
+* Uses device geolocation
+* Calculates Qibla direction
+* Displays the bearing toward the Kaaba
+* Supports location permission handling
+* Provides fallback options when location access is unavailable
+
+---
+
+## 📿 Tasbih
+
+Digital Dhikr counter with:
+
+* Tap-to-count functionality
+* Persistent counter
+* Common Dhikr presets
+* Reset functionality
+* Optional vibration feedback
+
+---
+
+## 🌙 Ramadan
+
+Ramadan-focused tools including:
+
+* Suhoor information
+* Iftar information
+* Fasting countdown
+* Ramadan timetable
+* Daily fasting status
+* Ramadan reminders
+
+---
+
+## 📅 Islamic Calendar
+
+* Hijri date
+* Gregorian date
+* Islamic events
+* Important Islamic dates
+* Ramadan date information
+
+> Islamic calendar calculations may be approximate where official lunar-calendar announcements are required.
+
+---
+
+## 🔔 Notifications
+
+WAHDATH supports prayer-related notifications including:
+
+* Prayer reminders
+* Adhan notifications
+* Browser notification permissions
+* Configurable notification preferences
+* Push notification support
+
+---
+
+## 👨‍💻 Admin Dashboard
+
+The admin system provides tools for managing prayer data.
+
+Features include:
+
+* Prayer timetable management
+* CSV import
+* Prayer-time validation
+* Data preview
+* Location-based timetable management
+* Publishing updated prayer data
+
+This allows prayer timetables to be updated without modifying the application source code.
+
+---
+
+## 🌍 Sri Lankan Location Support
+
+WAHDATH is designed specifically for Sri Lanka.
+
+The location system supports the country's:
+
+* 9 Provinces
+* 25 Districts
+* Multiple cities and towns
+
+The prayer system is structured so that location-specific timetables can be maintained independently.
+
+---
+
+## 🎨 UI & UX
+
+WAHDATH follows a modern, responsive design philosophy.
+
+### Design goals
+
+* 📱 Mobile-first
+* 💻 Desktop responsive
+* 🌙 Dark mode
+* ☀️ Light mode
+* ⚡ Fast interactions
+* 🎞️ Smooth animations
+* ♿ Accessible interface
+* 🕌 Modern Islamic visual identity
+* 🌐 Multilingual-ready architecture
+
+---
+
+## 🛠️ Technology Stack
+
+### Frontend
+
+* React
+* Vite
+* JavaScript
+* Tailwind CSS
+* Framer Motion
+
+### Backend
+
+* Node.js
+* Express.js
+
+### Data & Services
+
+* Quran data
+* Prayer timetable data
+* Geolocation APIs
+* Browser Notifications
+* Web Push
+* AI/RAG services
+
+### Deployment
+
+Designed for deployment using:
+
+* Vercel
+* Node.js-compatible backend hosting
+* Supabase / PostgreSQL for production data services
+
+---
+
+## 📂 Project Structure
+
+```text
+WAHDATH/
+│
+├── public/
+│   ├── icons/
+│   ├── images/
+│   └── ...
+│
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── data/
+│   ├── hooks/
+│   ├── services/
+│   ├── utils/
+│   └── ...
+│
+├── server/
+│   ├── routes/
+│   ├── services/
+│   └── ...
+│
+├── index.html
+├── package.json
+├── package-lock.json
+├── vite.config.js
+├── tailwind.config.js
+├── .gitignore
+└── README.md
 ```
+
+---
+
+# 🚀 Getting Started
+
+## Prerequisites
+
+Make sure you have installed:
+
+* Node.js
+* npm
+* Git
+
+Check your installation:
+
+```bash
+node -v
+npm -v
+git --version
+```
+
+---
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/YOUR-USERNAME/WAHDATH.git
+```
+
+Enter the project:
+
+```bash
+cd WAHDATH
+```
+
+Install dependencies:
+
+```bash
 npm install
-cp server/.env.example server/.env
-cd server && npm install && npx web-push generate-vapid-keys && cd ..
-# paste the generated keys into server/.env (VAPID_PUBLIC_KEY / VAPID_PRIVATE_KEY),
-# and add your ANTHROPIC_API_KEY there too if you want Ask WAHDATH's explanations
-
-npm run dev         # frontend only (Ask WAHDATH + Adhan notifications will show "not configured")
-npm run dev:server  # backend only, on http://localhost:8787
-npm run dev:full    # both together
-
-npm run build       # production build (outputs to dist/)
-npm run preview     # preview the production build (static parts only — see Deployment below)
 ```
 
-## What changed from the original prototype
+---
 
-The original `app.js` did an **exact date match** against the timetable. The
-uploaded timetable only has an entry every ~5 days (79 rows for the year), so
-the countdown silently broke ("No source row for this date") on 4 out of 5
-days. `src/services/prayerEngine.js` now **interpolates between the nearest
-surrounding rows** when there's no exact entry, and falls back to the nearest
-edge row outside the dataset's range instead of failing.
+## ▶️ Run the Application
 
-While testing the rebuilt engine I also introduced and then caught a real bug
-of my own: `buildNextPrayer` was treating "minutes since midnight" (e.g. 273)
-as if it were fractional hours, which could roll the countdown target
-forward by days. Fixed and covered by the sanity checks below.
+### Frontend
 
-Also fixed/hardened:
-- Next-prayer calculation now correctly rolls from Isha into **tomorrow's**
-  Fajr, and never shows a negative countdown.
-- The Eastern Province −6 minute adjustment is centralized in one place
-  (`PROVINCE_ADJUSTMENTS` in `prayerEngine.js`) and always normalizes to a
-  valid `HH:MM`, so it can never produce something like `24:05` or `-02:10`.
-- Location data (`src/data/locations.json`) already had all 9 provinces and
-  all 25 districts from the original project — just with short town lists,
-  which are easy to extend.
-
-## Architecture
-
-```
-src/
-  components/   Layout, nav, prayer/location UI, NotificationSettings
-  pages/        One file per route (Home, Prayer, Quran, SurahDetail, Hadith, Ramadan, ...)
-  services/     prayerEngine.js, locationService.js, quranService.js, hadithService.js — pure logic, no UI
-  hooks/        useNow, useNextPrayer, useQuranData, useHadithData
-  context/      Theme, user location, prayer data (base vs admin override)
-  utils/        hijri.js, qibla.js, csvImport.js, storage.js, pushNotifications.js
-  data/         BASE DATA — locations.json, prayer-times-colombo-2026.json, quran-surahs.json (index)
-  sw.js         Custom service worker source — Workbox precaching + real push/notificationclick handling
-public/
-  quran/        The full Qur'an dataset (quran-en.json, ~2.4MB) + its ATTRIBUTION.md and license —
-                 fetched lazily by the browser, never bundled into the main JS chunk
-  hadith/       An-Nawawi's Forty Hadith (nawawi-40-full.json, CC BY 4.0) + ATTRIBUTION.md
-server/         Express backend — the only place API keys are used (section 42)
-  retrieval.js              Keyword search over public/quran/quran-en.json — no LLM involved
-  claude.js                 The single call to the Claude API, strictly scoped to retrieval's ayahs
-  index.js                  Routes: POST /api/ask, notification subscribe/unsubscribe/vapid-key
-  notificationScheduler.js  Ticks every 20s, reuses src/services/prayerEngine.js directly, sends
-                             real web push at each subscriber's chosen prayers/offsets
-  subscriptionStore.js      File-backed store for push subscriptions + preferences (swap for a real
-                             DB in production — see section 41's suggested schema)
-  webpush.js                VAPID configuration wrapper
+```bash
+npm run dev
 ```
 
-`context/PrayerDataContext.jsx` keeps the **shipped base timetable** and any
-**admin-imported override** clearly separate, per the spec's requirement not
-to conflate base data with location-specific/admin data. Importing a new CSV
-from the Admin page never mutates the original file — it stores a versioned
-override (with an import timestamp) that can be reverted.
+The application will normally be available at:
 
-The notification scheduler importing `prayerEngine.js` directly from `src/`
-(rather than duplicating the logic) is deliberate: the server can never
-compute a different "next prayer" than what the app displays, because
-they're the same code.
-
-## What's fully implemented
-
-- Prayer engine: next-prayer + live countdown, today's prayer statuses,
-  date navigation, monthly calendar (table on desktop, cards on mobile)
-- Province → District → City selector over the full 25-district dataset
-- Eastern Province adjustment (configurable, Settings can also override
-  manually)
-- **Qur'an**: all 114 surahs, 6,236 ayahs, Uthmani Arabic + Saheeh
-  International translation. Surah browser, full-text search (surah name,
-  ayah number, or translation keywords), bookmarks, last-read position,
-  font-size control, translation toggle, copy and share — see "Qur'an data"
-  below for sourcing/licensing.
-- **Ask WAHDATH (AI assistant)**: a real retrieval-then-explain pipeline.
-  `server/retrieval.js` keyword-searches the full 6,236-ayah dataset — no
-  LLM involved in that step, so it's impossible for it to surface a verse
-  that doesn't exist. Only the ayahs it finds are then passed to Claude
-  (`server/claude.js`) with a system prompt that forbids it from discussing
-  anything else, issuing rulings, or claiming certainty beyond the given
-  translations. If the model call fails or no API key is configured, the
-  endpoint still returns the real verses with an honest "explanation not
-  available" note instead of breaking.
-- Qibla finder: real bearing/distance calculation to the Kaaba, with device
-  orientation where the browser supports it and a graceful fallback where
-  it doesn't
-- Tasbih counter with presets, custom goals, vibration, persistence
-- **Ramadan**: Suhoor/Iftar live countdown from real prayer data, approximate
-  Hijri-based Ramadan detection, a full estimated-month Suhoor/Iftar
-  calendar, and the commonly recited Iftar dua (labeled as traditional
-  practice, not a specific graded hadith citation)
-- **Hadith**: search over An-Nawawi's Forty Hadith (42 hadith, full Arabic +
-  English, CC BY 4.0) — see "Hadith data" below for sourcing/licensing
-- **Adhan notifications**: real Web Push, working even when the app/tab is
-  closed — see "Adhan notifications" below for how it's wired
-- Admin CSV import with row-level validation (bad dates, bad times,
-  duplicates, missing columns) and clear error reporting
-- Light/dark/system theme, guest-mode local persistence, PWA manifest +
-  custom service worker with offline caching of the JSON data files
-- Onboarding flow, Settings, Profile, About
-
-## Qur'an data — sourcing and licensing
-
-- **Arabic text**: Uthmani script, from The Noble Qur'an Encyclopedia
-  (quranenc.com)
-- **English translation**: Saheeh International (Umm Muhammad), sourced via
-  Tanzil.net
-- **Packaged by**: the [`quran-json`](https://github.com/risan/quran-json)
-  npm package
-- **License**: CC BY-SA 4.0 — full text in
-  `public/quran/LICENSE-quran-data.txt`, summary in
-  `public/quran/ATTRIBUTION.md`
-
-This is real, named, licensed source text — not AI-generated and not
-paraphrased. Every screen that shows a verse also shows this attribution.
-
-## Ask WAHDATH — how it actually works
-
-```
-User question
-  → server/retrieval.js: keyword search over all 6,236 ayahs (no LLM)
-  → top ~5 matches, with surah/ayah numbers, Arabic, and translation
-  → server/claude.js: Claude is shown ONLY those ayahs + the question
-  → Claude writes a short explanation, forbidden from citing anything
-    else, forbidden from issuing rulings
-  → response returns: the real verses (always) + the AI explanation
-    (labeled as AI-generated, degrades to "not available" on failure)
+```text
+http://localhost:5173
 ```
 
-To enable it: copy `server/.env.example` to `server/.env` and set
-`ANTHROPIC_API_KEY`. The key is read with `dotenv` and never leaves the
-Node process — the frontend only ever talks to `/api/ask` on your own
-server (see `vite.config.js`'s dev proxy for local development).
+### Backend
 
-## Hadith data — sourcing and licensing
+In a second terminal:
 
-While researching a full Hadith corpus (Bukhari, Muslim, and the other
-canonical collections), the realistic options were either unlicensed
-scrapes with no explicit redistribution rights, or a dataset licensed
-AGPL-3.0 — usable, but its network-copyleft clause would legally require
-this whole app to be open-sourced under AGPL if shipped as-is with it. A
-real tradeoff, worth deciding deliberately rather than inheriting by
-accident.
-
-So instead, `public/hadith/nawawi-40-full.json` ships with **An-Nawawi's
-Forty Hadith** — 42 hadith (by scholarly convention), full Arabic text,
-full English translation, and narrator chains — packaged by the
-[`@kazishariar/nawawi-40-hadith-data`](https://www.npmjs.com/package/@kazishariar/nawawi-40-hadith-data)
-npm package under **CC BY 4.0** (confirmed on the npm registry). This is
-one well-established, clearly licensed collection, not the full canonical
-corpus. Details in `public/hadith/ATTRIBUTION.md`, along with the
-recommended path for adding a complete dataset later (the official
-Sunnah.com API).
-
-## Adhan notifications — how they actually work
-
-This needed real infrastructure, not a foreground `setTimeout` (which stops
-the moment the tab or app closes):
-
-```
-Browser: request Notification permission → subscribe via the Push API
-  (using the server's VAPID public key) → send the subscription + chosen
-  prayers/offsets to POST /api/notifications/subscribe
-
-Server (every 20s): notificationScheduler.js reuses the SAME
-  src/services/prayerEngine.js the frontend uses → for each subscriber,
-  checks whether any enabled prayer (minus their offset) falls in the
-  current tick → sends a real Web Push notification via VAPID
-
-Service worker (src/sw.js): 'push' event → shows the OS-level notification,
-  even if the app/tab is fully closed. 'notificationclick' → focuses or
-  opens the app to the Prayer page.
+```bash
+npm run dev:server
 ```
 
-To enable it: generate a VAPID keypair (`npx web-push generate-vapid-keys`
-from inside `server/`) and put both keys in `server/.env`. Without them,
-the scheduler logs a warning and stays idle, and Settings shows push as
-unavailable instead of pretending it works.
+The backend normally runs on:
 
-**Note**: `server/subscriptions.json` is a plain JSON file used as the
-subscription store — fine for running/demoing this yourself, but section
-41's suggested `notifications` table is the right shape for a real
-multi-instance deployment.
+```text
+http://localhost:8787
+```
 
-## What's intentionally stubbed, not faked
+### Run Frontend + Backend Together
 
-- **Auth/accounts**: guest mode only. No Firebase/Supabase wiring yet — all
-  data (location, bookmarks, tasbih, theme, notification preferences)
-  lives in `localStorage` on the client, and push subscriptions are keyed
-  by device/browser on the server (see `subscriptionStore.js`) rather than
-  a real user account.
-- **Admin route has no real authentication.** It's reachable at `/admin` for
-  demo purposes only; do not ship this without a backend auth layer.
-- **Hadith coverage is one collection (Nawawi's Forty Hadith)**, not the
-  full canonical corpus (Bukhari, Muslim, etc.) — see "Hadith data" above.
+If configured in `package.json`, you can use:
 
-## Deployment
+```bash
+npm run dev:full
+```
 
-The frontend (`npm run build`) is a static site — deploy `dist/` anywhere
-(Netlify, Vercel, S3+CloudFront, etc). The backend (`server/`) needs an
-**actual long-running Node process** — not a one-shot serverless function —
-because `notificationScheduler.js` runs on an interval. A small always-on
-Node service (Fly.io, Railway, a small VPS, etc.) works well; the `/api/ask`
-endpoint alone would be fine as a serverless function, but the scheduler
-needs something that stays alive. Set `ANTHROPIC_API_KEY`,
-`VAPID_PUBLIC_KEY`, `VAPID_PRIVATE_KEY`, and `VAPID_SUBJECT` in that
-platform's environment variables (never in a build-time/public env var),
-and point the frontend's `/api` requests at it — either through the
-hosting platform's rewrite rules (same pattern as the local dev proxy in
-`vite.config.js`) or by setting a full backend URL in the frontend if it's
-hosted separately. Replace `subscriptionStore.js`'s JSON file with a real
-database before running more than one server instance.
+---
 
-## Data sources
+# 🔐 Environment Variables
 
-- Prayer times: the uploaded Colombo 2026 timetable (base data only —
-  **not verified for other locations**; replace before production, per the
-  original project's own README).
-- Locations: Sri Lanka's 9 provinces / 25 districts, town lists are a
-  starting point and easy to extend in `src/data/locations.json`.
+Some features may require environment variables.
 
+Create a local `.env` file:
 
-## Prayer data update
+```env
+# Example
 
-The bundled prayer data now uses the ACJU Zone 01 daily timetable for September 2026 (Colombo, Gampaha, Kalutara). The official ACJU prayer-times page is the authoritative source. Other 2026 months retain the original supplied base timetable until their official daily tables are imported.
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
 
+OPENAI_API_KEY=
 
-## Prayer timetable source update
+VAPID_PUBLIC_KEY=
+VAPID_PRIVATE_KEY=
+```
 
-WAHDATH now attempts to load the official ACJU daily timetable for the selected Sri Lankan ACJU zone through the local Express backend. The backend retrieves the monthly ACJU timetable data via the prayers.lk mirror and caches it for the session. The ACJU official prayer-times page is the source-of-record: https://www.acju.lk/prayer-times/
+**Never commit your real API keys or secrets to GitHub.**
 
-- 2026: the app loads daily ACJU rows for the selected zone when the backend is running.
-- 2027: the year selector is included, but WAHDATH does not invent 2027 prayer times. If the ACJU timetable is not published yet, the app shows that it is unavailable.
-- The bundled 2026 Colombo data remains a fallback for the first render/offline use.
-- Eastern Province's existing configurable -6 minute adjustment is preserved.
-- For production, verify the displayed zone against the official ACJU PDF timetable before publishing.
+Use `.env.example` for documenting required variables:
+
+```env
+SUPABASE_URL=
+SUPABASE_ANON_KEY=
+OPENAI_API_KEY=
+VAPID_PUBLIC_KEY=
+VAPID_PRIVATE_KEY=
+```
+
+---
+
+# 🧪 Testing
+
+Before deploying changes, test the major application functions:
+
+* Prayer time calculation
+* Next Prayer detection
+* Countdown timer
+* Midnight → next-day Fajr transition
+* Eastern Province adjustment
+* Location selection
+* Quran search
+* Quran bookmarks
+* Qibla calculation
+* Tasbih counter
+* Ramadan calculations
+* Notification permissions
+* Admin CSV validation
+* AI Quran references
+
+---
+
+# 🕌 Prayer Time Data
+
+Prayer times are particularly important because they are location and date dependent.
+
+WAHDATH uses structured prayer-time data so that timetables can be updated independently of the frontend application.
+
+For production use, prayer times should be verified against **reliable and authoritative Sri Lankan Islamic prayer timetables** for each supported location.
+
+The application should not assume that a timetable from one city is automatically exact for every city in Sri Lanka.
+
+---
+
+# 🤖 AI Safety
+
+The WAHDATH AI Quran Assistant is designed to provide Quran-related educational assistance.
+
+The system should:
+
+* Provide Surah and Ayah references
+* Use verified source material
+* Avoid inventing Quran verses
+* Clearly distinguish Quran text from explanations
+* Avoid presenting unsupported religious rulings as authoritative
+* Encourage consultation with qualified scholars for complex Islamic legal questions
+
+---
+
+# 🔒 Security
+
+Security is an important part of the project.
+
+Production deployments should include:
+
+* Server-side API keys
+* Environment variables
+* Input validation
+* Rate limiting
+* Secure authentication
+* Database access policies
+* Role-based admin access
+* Protection against unauthorized timetable modification
+* Proper CORS configuration
+* Secure API endpoints
+
+---
+
+# 📱 Progressive Web App
+
+WAHDATH is designed to support Progressive Web App functionality.
+
+Potential PWA capabilities include:
+
+* Install WAHDATH on mobile
+* Offline access
+* Cached application resources
+* Fast loading
+* App-like experience
+* Notification support
+
+---
+
+# 🗺️ Roadmap
+
+### ✅ Current
+
+* [x] React/Vite application
+* [x] Prayer time system
+* [x] Next Prayer countdown
+* [x] Sri Lankan location structure
+* [x] Quran
+* [x] Quran search
+* [x] Bookmarks
+* [x] Qibla
+* [x] Tasbih
+* [x] Ramadan tools
+* [x] Islamic calendar
+* [x] Admin functionality
+* [x] AI Quran Assistant architecture
+* [x] PWA foundation
+
+### 🚧 Future
+
+* [ ] Fully verified location-specific Sri Lankan prayer timetables
+* [ ] Sinhala Quran translation
+* [ ] Tamil Quran translation
+* [ ] Quran audio
+* [ ] Multiple Qari options
+* [ ] Advanced Quran Tafsir
+* [ ] Scholar-reviewed AI responses
+* [ ] User accounts
+* [ ] Cloud-synchronized bookmarks
+* [ ] Personalized prayer notifications
+* [ ] Advanced Ramadan planner
+* [ ] Community features
+* [ ] Native Android application
+* [ ] iOS application
+
+---
+
+# 🤝 Contributing
+
+Contributions are welcome.
+
+### 1. Fork the repository
+
+```bash
+git clone https://github.com/YOUR-USERNAME/WAHDATH.git
+```
+
+### 2. Create a branch
+
+```bash
+git checkout -b feature/your-feature
+```
+
+### 3. Make your changes
+
+### 4. Commit
+
+```bash
+git add .
+git commit -m "Add your feature"
+```
+
+### 5. Push
+
+```bash
+git push origin feature/your-feature
+```
+
+### 6. Create a Pull Request
+
+Please make sure your changes are tested before submitting a pull request.
+
+---
+
+# 📄 License
+
+This project is currently intended as an educational and development project.
+
+If this repository is later released publicly, an appropriate open-source license should be added based on the project's Quran, translation, API, and third-party data licensing requirements.
+
+---
+
+# 👨‍💻 Project
+
+**WAHDATH — Your Muslim Companion**
+
+Built with ❤️ for Muslims in Sri Lanka.
+
+> **Prayer. Quran. Guidance. One Companion.**
+
+---
+
+### ⚠️ Disclaimer
+
+WAHDATH is a technology project intended to provide convenient access to Islamic resources and tools.
+
+Prayer times, Islamic dates, Quran translations, and AI-generated explanations should be verified against trusted and authoritative sources where appropriate.
+
+The AI Quran Assistant does not replace a qualified Islamic scholar or Mufti.
