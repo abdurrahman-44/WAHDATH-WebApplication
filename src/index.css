@@ -1,0 +1,30 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  body {
+    @apply bg-parchment text-ink font-sans antialiased dark:bg-night dark:text-white;
+  }
+  :focus-visible {
+    outline: 2px solid theme('colors.brass.600');
+    outline-offset: 2px;
+  }
+  .arabic {
+    font-family: theme('fontFamily.arabic');
+    direction: rtl;
+    line-height: 2.1;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

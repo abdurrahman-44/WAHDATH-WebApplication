@@ -1,0 +1,129 @@
+{
+  "Western": {
+    "Colombo": [
+      "Colombo",
+      "Dehiwala-Mount Lavinia",
+      "Moratuwa",
+      "Sri Jayawardenepura Kotte"
+    ],
+    "Gampaha": [
+      "Gampaha",
+      "Negombo",
+      "Wattala",
+      "Minuwangoda"
+    ],
+    "Kalutara": [
+      "Kalutara",
+      "Panadura",
+      "Beruwala",
+      "Horana"
+    ]
+  },
+  "Central": {
+    "Kandy": [
+      "Kandy",
+      "Katugastota",
+      "Peradeniya",
+      "Gampola"
+    ],
+    "Matale": [
+      "Matale",
+      "Dambulla",
+      "Ukuwela"
+    ],
+    "Nuwara Eliya": [
+      "Nuwara Eliya",
+      "Hatton",
+      "Talawakele"
+    ]
+  },
+  "Sabaragamuwa": {
+    "Kegalle": [
+      "Kegalle",
+      "Mawanella",
+      "Kannattota",
+      "Ruwanwella",
+      "Warakapola"
+    ],
+    "Ratnapura": [
+      "Ratnapura",
+      "Balangoda",
+      "Embilipitiya"
+    ]
+  },
+  "Eastern": {
+    "Ampara": [
+      "Ampara",
+      "Kalmunai",
+      "Akkaraipattu"
+    ],
+    "Batticaloa": [
+      "Batticaloa",
+      "Kattankudy",
+      "Eravur"
+    ],
+    "Trincomalee": [
+      "Trincomalee",
+      "Kinniya"
+    ]
+  },
+  "Northern": {
+    "Jaffna": [
+      "Jaffna",
+      "Chavakachcheri"
+    ],
+    "Kilinochchi": [
+      "Kilinochchi"
+    ],
+    "Mannar": [
+      "Mannar"
+    ],
+    "Mullaitivu": [
+      "Mullaitivu"
+    ],
+    "Vavuniya": [
+      "Vavuniya"
+    ]
+  },
+  "North Central": {
+    "Anuradhapura": [
+      "Anuradhapura"
+    ],
+    "Polonnaruwa": [
+      "Polonnaruwa"
+    ]
+  },
+  "North Western": {
+    "Kurunegala": [
+      "Kurunegala",
+      "Kuliyapitiya"
+    ],
+    "Puttalam": [
+      "Puttalam",
+      "Chilaw"
+    ]
+  },
+  "Uva": {
+    "Badulla": [
+      "Badulla",
+      "Bandarawela"
+    ],
+    "Monaragala": [
+      "Monaragala"
+    ]
+  },
+  "Southern": {
+    "Galle": [
+      "Galle",
+      "Ambalangoda"
+    ],
+    "Matara": [
+      "Matara",
+      "Weligama"
+    ],
+    "Hambantota": [
+      "Hambantota",
+      "Tangalle"
+    ]
+  }
+}
